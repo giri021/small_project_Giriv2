@@ -1,0 +1,12 @@
+cd /var/www/html/
+sudo mysql -u devopscilsy -p dbsosmed < dump.sql
+
+sudo mysql -u root -p
+Sudo mysql -u root -p create user ‘devopscilsy’@’localhost’ identified by ‘1234567890’;
+grant all privileges on *.* to ‘devopscilsy’@’localhost’;
+create database dbsosmed;
+show databases;
+
+
+sudo apt-get install unzip
+unzip master.zip

@@ -1,0 +1,8 @@
+apt-get remove apache2* -y
+apt-get auto-remove apache2* -y
+apt-get purge apache2* -y
+
+masuk ke cd /etc terus delete rm -f apache2
+
+baru install lagi 
+apt-get install apache2*

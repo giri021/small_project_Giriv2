@@ -1,0 +1,58 @@
+
+
+===Mountinging======
+apt-get install build-essential gcc libfuse-dev libcurl4-openssl-dev libxml2-dev mime-support pkg-config libxml++2.6-dev libssl-dev
+
+wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/s3fs/s3fs-1.74.tar.gz
+
+tar -xvzf s3fs-1.74.tar.gz
+
+cd s3fs-1.74
+
+./configure --prefix=/usr
+
+make
+
+make install
+
+which s3fs
+
+echo "AccessKey:SecretKey" > /etc/passwd-s3fs
+
+>>> lihat dibawah <<<
+
+echo "AKIAIKNOWUOGOILOIR4Q:+kYxUqD37iUK86hBmWagw3X42DIFSM5lUVDgytLW" > /etc/passwd-s3fs
+
+chmod 640 /etc/passwd-s3fs
+
+mkdir /girihartono-smallproject
+
+/usr/bin/s3fs girihartono-smallproject -o use_cache=/tmp -o allow_other -o multireq_max=5 /girihartono-smallproject
+
+df -TH
+
+
+====UNMOUNT=====
+
+umount /girihartono-smallproject
+
+Now this volume is Non-Persistent i.e; once you reboot your system this mount point wont exists, to make it persistent and automatically mount for every reboot we need to add below entries to /etc/rc.local
+
+open:
+nano /etc/rc.local
+
+Add below Line and save the file:
+
+
+/usr/bin/s3fs girihartono-smallproject -o use_cache=/tmp -o allow_other -o multireq_max=5 /girihartono-smallproject
+
+
+Now you should be able to read and write filed to S3 (Considering you have S3 full access).
+
+touch /sravancloudarchS3/sravan
+
+[root@ip-172-31-49-68 ~]# ls -lrt /girihartono-smallproject/
+total 1
+-rw-r--r-- 1 root root 0 Jun  7 10:11 sravan
+[root@ip-172-31-49-68 ~]# 
+

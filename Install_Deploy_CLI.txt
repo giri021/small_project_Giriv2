@@ -1,0 +1,32 @@
+apt-get update
+sudo apt­get install automake autotools­dev fuse g++ git libcurl4­gnutls­dev libfuse­dev libssl­dev libxml2­dev make pkg­config
+git clone https://github.com/s3fs­fuse/s3fs­fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure --prefix=/usr --with-openssl
+make
+sudo make install
+cd src
+sudo mv s3fs /usr/local/bin
+
+nano /etc/passwd­s3fs -c
+accesskey_kamu:secretkey_kamu >>> accesskey:AKIAIKNOWUOGOILOIR4Q:+kYxUqD37iUK86hBmWagw3X42DIFSM5lUVDgytLW
+sudo chmod 640 /etc/passwd­s3fs
+mkdir /S3devopscilsy
+sudo s3fs storage­aplikasi ­o use_cache=/tmp ­o allow_other ­o uid=1001 ­o mp_umask=002 ­o multireq_max=5 /S3devopscilsy
+
+>> storage­aplikasi >> girihartono
+
+
+sudo apt-get update && sudo apt-get install python-pip
+pip install awscli
+pip install awsebcli --upgrade --user
+export PATH=~/.local/bin:$PATH
+wget https://codeload.github.com/sdcilsy/landing-page/zip/master
+
+eb init
+Acces Key  : AKIAIKNOWUOGOILOIR4Q
+Secret Key : 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
+
+accesskey:AKIAIKNOWUOGOILOIR4Q:+kYxUqD37iUK86hBmWagw3X42DIFSM5lUVDgytLW
+
